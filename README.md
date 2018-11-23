@@ -14,7 +14,7 @@ ruby package exists and installs gem, this should all still work for you.
 </small>
 
 This is really just a wrapper around the fantastic command line twitter tool,
-`t`. I've tried to make getting going with that simple:
+[t](https://github.com/sferik/t). I've tried to make getting going with that simple:
 ```
 make setup
 ```
