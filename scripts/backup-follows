@@ -1,0 +1,13 @@
+#!/bin/bash
+
+scriptpath="$( cd "$(dirname "$0")" ; pwd -P )"
+datapath=$scriptpath/../data
+
+mapfile -t followings < $datapath/following.txt
+
+#t list create -p backup
+for f in "${followings[@]}"; do
+    t list add backup $f
+    sleep 5
+done
+

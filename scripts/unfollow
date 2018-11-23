@@ -1,0 +1,21 @@
+#!/bin/bash
+
+scriptpath="$( cd "$(dirname "$0")" ; pwd -P )"
+datapath=$scriptpath/../data
+
+mapfile -t followings < $datapath/following.txt
+
+if [ -f $datapath/keepers.txt ]; then
+    mapfile -t keepers < $datapath/keepers.txt
+else
+    keepers=()
+fi
+
+for f in "${followings[@]}"; do
+    if echo ${keepers[@]} | grep -q -w $f; then
+        echo "keeping $f"
+    else
+        t unfollow $f
+    fi
+    sleep 5
+done
